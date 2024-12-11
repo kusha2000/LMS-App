@@ -5,6 +5,7 @@ import { useEffect,useState } from 'react';
 import 'react-native-reanimated';
 import OnBoarding from './(routes)/onboarding';
 import { View } from 'react-native';
+import { Stack } from 'expo-router';
 
 
 export {
@@ -50,7 +51,13 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
 
         </View>
       ) : (
-        <OnBoarding/>
+        <Stack screenOptions={{headerShown:false}}>
+          <Stack.Screen name="index"/>
+          <Stack.Screen name="(routes)/welcome-intro"/>
+          <Stack.Screen name="(routes)/login"/>
+          <Stack.Screen name="(routes)/sign-up"/>
+          <Stack.Screen name="(routes)/forgot-password"/>
+        </Stack>
       )}
     </>
 

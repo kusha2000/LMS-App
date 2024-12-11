@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     fontSize: hp("2%"),
   },
   buttonWrapper: {
-    backgroundColor: "#2467EC",
+    backgroundColor: "#009990",
     width: wp("92%"),
     paddingVertical: 18,
     borderRadius: 4,
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   welcomeButtonStyle:{
-    backgroundColor: "#2467EC",
+    backgroundColor: "#009990",
     width: responsiveWidth(88),
     height: responsiveHeight(5.5),
     alignSelf: "center",

@@ -29,7 +29,7 @@ export const commonStyles = StyleSheet.create({
     marginHorizontal: 5,
   },
   activeDotStyle: {
-    backgroundColor: "#2467Ec",
+    backgroundColor: "#009990",
     width: responsiveWidth(2.5),
     height: responsiveWidth(2.5),
     borderRadius: 5,
