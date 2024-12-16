@@ -50,6 +50,8 @@ export const registrationUser = CatchAsyncError(
         data
       );
 
+      console.log(req.body);
+
       try {
         await sendMail({
           email: user.email,

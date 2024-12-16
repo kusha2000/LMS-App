@@ -11,6 +11,7 @@ interface EmailOptions{
 }
 
 const sendMail = async (options: EmailOptions):Promise <void> => {
+    
     const transporter: Transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT || '587'),
@@ -22,6 +23,7 @@ const sendMail = async (options: EmailOptions):Promise <void> => {
     });
 
     const {email,subject,template,data} = options;
+    console.log(email);
 
     // get the pdath to the email template file
     const templatePath = path.join(__dirname,'../mails',template);

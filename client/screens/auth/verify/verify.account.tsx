@@ -9,6 +9,10 @@ import React, { useRef, useState } from "react";
 import Button from "@/components/button/button";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import { Toast } from "react-native-toast-notifications";
+import axios from 'axios';
+import { SERVER_URI } from "@/utils/uri";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function VerifyAccountScreen() {
   const [code, setCode] = useState(new Array(4).fill(""));
@@ -30,7 +34,26 @@ export default function VerifyAccountScreen() {
   };
 
   const handleSumbit = async () => {
-    
+    const otp = code.join("");
+    const activation_token = await AsyncStorage.getItem("activation_token");
+
+    await axios
+      .post(`${SERVER_URI}/activate-user`, {
+        activation_token,
+        activation_code: otp,
+      })
+      .then((res: any) => {
+        Toast.show("Your account activated successfully!", {
+          type: "success",
+        });
+        setCode(new Array(4).fill(""));
+        router.push("/(routes)/login");
+      })
+      .catch((error) => {
+        Toast.show("Your OTP is not valid or expired!", {
+          type: "danger",
+        });
+      });
   };
 
   return (
@@ -66,7 +89,7 @@ export default function VerifyAccountScreen() {
         </Text>
         <TouchableOpacity onPress={() => router.back()}>
           <Text style={[styles.loginText, { fontFamily: "Nunito_700Bold" }]}>
-            Sign In
+            Sign Up
           </Text>
         </TouchableOpacity>
       </View>

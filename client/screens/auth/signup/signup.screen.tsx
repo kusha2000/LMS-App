@@ -31,6 +31,10 @@ import {
   import { useState } from "react";
   import { commonStyles } from "@/styles/common/common.styles";
   import { router } from "expo-router";
+import axios from 'axios';
+import { SERVER_URI } from "@/utils/uri";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Toast } from "react-native-toast-notifications";
   
   
   export default function SignUpScreen() {
@@ -92,8 +96,35 @@ import {
       }
     };
   
-    const handleSignIn = async () => {
-        router.push("../(routes)/verifyAccount")
+    const handleSignUp = async () => {
+        setButtonSpinner(true);
+        //console.log(userInfo);
+        await axios.post(`${SERVER_URI}/registration`,{
+          name:userInfo.name,
+          email:userInfo.email,
+          password:userInfo.password,
+        }).then(async (res) => {
+          await AsyncStorage.setItem(
+            "activation_token",
+            res.data.activationToken
+          );
+          Toast.show(res.data.message, {
+            type: "success",
+          });
+          setUserInfo({
+            name: "",
+            email: "",
+            password: "",
+          });
+          setButtonSpinner(false);
+          router.push("/(routes)/verifyAccount");
+        })
+        .catch((error) => {
+          setButtonSpinner(false);
+          Toast.show("Email already exist!", {
+            type: "danger",
+          });
+        });
     };
   
     return (
@@ -110,7 +141,7 @@ import {
             Let's get started!
           </Text>
           <Text style={styles.learningText}>
-            Create an account to Becodemy to get all features
+            Create an account to EduBridge to get all features
           </Text>
           <View style={styles.inputContainer}>
             <View>
@@ -135,7 +166,7 @@ import {
                 style={[styles.input, { paddingLeft: 40 }]}
                 keyboardType="email-address"
                 value={userInfo.email}
-                placeholder="support@becodemy.com"
+                placeholder="abc@gmail.com"
                 onChangeText={(value) =>
                   setUserInfo({ ...userInfo, email: value })
                 }
@@ -198,7 +229,7 @@ import {
                   backgroundColor: "#009990",
                   marginTop: 15,
                 }}
-                onPress={handleSignIn}
+                onPress={handleSignUp}
               >
                 {buttonSpinner ? (
                   <ActivityIndicator size="small" color={"white"} />

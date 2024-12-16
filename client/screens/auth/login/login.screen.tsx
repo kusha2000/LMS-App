@@ -12,6 +12,10 @@ import { Nunito_400Regular,Nunito_600SemiBold,Nunito_500Medium,Nunito_700Bold } 
 import { useState } from 'react'
 import { commonStyles } from '@/styles/common/common.styles'
 import { router } from 'expo-router'
+import { SERVER_URI } from '@/utils/uri'
+import { Toast } from 'react-native-toast-notifications'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from 'axios';
 
 
 const LoginScreen = () => {
@@ -74,7 +78,22 @@ const LoginScreen = () => {
   }
 
   const handleSignIn = async () => {
-    
+    await axios
+      .post(`${SERVER_URI}/login`, {
+        email: userInfo.email,
+        password: userInfo.password,
+      })
+      .then(async (res) => {
+        await AsyncStorage.setItem("access_token", res.data.accessToken);
+        await AsyncStorage.setItem("refresh_token", res.data.refreshToken);
+        router.push("/(tabs)");
+      })
+      .catch((error) => {
+        console.log(error);
+        Toast.show("Email or password is not correct!", {
+          type: "danger",
+        });
+      });
   };
 
   return (
