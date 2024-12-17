@@ -1,24 +1,6 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Redirect } from 'expo-router';
-import useUser from '@/hooks/auth/useUser';
-import Loader from '@/components/loader/loader';
-
+import HomeScreen from "@/screens/home/home.screen";
 
 
 export default function index() {
-  const {loading,user}=useUser();
-    return (
-      <>
-        {loading ? (
-          //<Loader/>
-          <View>
-
-          </View>
-        ):(
-          <Redirect href={!user ? "/(routes)/onboarding" :"/(tabs)/home"}/>
-        )}
-      </>
-    );
-  }
-  
+  return <HomeScreen />;
+}

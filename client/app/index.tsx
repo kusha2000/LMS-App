@@ -1,7 +1,22 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Redirect } from 'expo-router'
+import useUser from "@/hooks/auth/useUser";
+import { Redirect } from "expo-router";
+import Loader from "@/components/loader/loader";
+import { View } from 'react-native'
 
-export default function index() {
-  return <Redirect href={"/(routes)/onboarding"}/>;
+export default function TabsIndex() {
+  const { loading, user } = useUser();
+  return (
+    <>
+      {!loading ? (
+        // <Loader />
+        <View>
+
+        </View>
+          
+      ) : (
+        <Redirect href={!user ? "/(routes)/onboarding" : "/(tabs)"} />
+        // <Redirect href={user ? "/(routes)/onboarding" : "/(tabs)"} />
+      )}
+    </>
+  );
 }
