@@ -56,6 +56,14 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
           <Stack.Screen name="(routes)/login"/>
           <Stack.Screen name="(routes)/sign-up"/>
           <Stack.Screen name="(routes)/forgot-password"/>
+          <Stack.Screen
+          name="(routes)/course-details/index"
+          options={{
+            headerShown: true,
+            title: "Course Details",
+            headerBackTitle: "Back",
+          }}
+        />
         </Stack>
       )}
     </ToastProvider>
