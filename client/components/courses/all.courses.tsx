@@ -18,6 +18,7 @@ import { router } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { SERVER_URI } from "@/utils/uri";
+import CourseCard from "@/components/cards/course.card";
 
 export default function AllCourses() {
   const [courses, setCourses] = useState<CoursesType[]>([]);
@@ -81,7 +82,7 @@ export default function AllCourses() {
         data={courses}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item._id.toString()}
-        renderItem={({ item }) => <View></View>}
+        renderItem={({ item }) => <CourseCard item={item} />}
       />
     </View>
   );

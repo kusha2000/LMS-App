@@ -18,9 +18,18 @@ app.use(express.json({ limit: "50mb" }));
 // cookie parser
 app.use(cookieParser());
 
-// cors => cross origin resource sharing
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000']; // List of allowed origins
 
+app.use(cors({
+  origin: function(origin: string | undefined, callback) {
+    if (origin && allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow cookies and credentials to be sent
+}));
 // api requests limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

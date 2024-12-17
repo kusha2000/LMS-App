@@ -14,6 +14,7 @@ import axios from "axios";
 import { SERVER_URI } from "@/utils/uri";
 import { router } from "expo-router";
 import { widthPercentageToDP } from "react-native-responsive-screen";
+import CourseCard from "../cards/course.card";
 
 export default function SearchInput({ homeScreen }: { homeScreen?: boolean }) {
   const [value, setValue] = useState("");
@@ -64,6 +65,12 @@ export default function SearchInput({ homeScreen }: { homeScreen?: boolean }) {
         marginLeft: "1.5%",
         flexDirection: "row",
       }}
+      onPress={() =>
+        router.push({
+          pathname: "/(routes)/course-details",
+          params: { item: JSON.stringify(item) },
+        })
+      }
     >
       <Image
         source={{ uri: item?.thumbnail?.url }}
@@ -107,7 +114,7 @@ export default function SearchInput({ homeScreen }: { homeScreen?: boolean }) {
           renderItem={
             homeScreen
               ? renderCourseItem
-              : ({ item }) => <View></View>
+              : ({ item }) => <CourseCard item={item} key={item._id} />
           }
         />
       </View>
