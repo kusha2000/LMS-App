@@ -148,7 +148,7 @@ export default function CourseDetailScreen() {
                     paddingVertical: 10,
                   }}
                 >
-                  ${courseData?.price}
+                  Rs.{courseData?.price}.00
                 </Text>
                 <Text
                   style={{
@@ -158,7 +158,7 @@ export default function CourseDetailScreen() {
                     textDecorationLine: "line-through",
                   }}
                 >
-                  ${courseData?.estimatedPrice}
+                  Rs.{courseData?.estimatedPrice}.00
                 </Text>
               </View>
               <Text style={{ fontSize: 15 }}>
@@ -222,7 +222,7 @@ export default function CourseDetailScreen() {
                   paddingVertical: 10,
                   paddingHorizontal: 42,
                   backgroundColor:
-                    activeButton === "About" ? "#2467EC" : "transparent",
+                    activeButton === "About" ? "#009990" : "transparent",
                   borderRadius: activeButton === "About" ? 50 : 0,
                 }}
                 onPress={() => setActiveButton("About")}
@@ -241,7 +241,7 @@ export default function CourseDetailScreen() {
                   paddingVertical: 10,
                   paddingHorizontal: 42,
                   backgroundColor:
-                    activeButton === "Lessons" ? "#2467EC" : "transparent",
+                    activeButton === "Lessons" ? "#009990" : "transparent",
                   borderRadius: activeButton === "Lessons" ? 50 : 0,
                 }}
                 onPress={() => setActiveButton("Lessons")}
@@ -260,7 +260,7 @@ export default function CourseDetailScreen() {
                   paddingVertical: 10,
                   paddingHorizontal: 42,
                   backgroundColor:
-                    activeButton === "Reviews" ? "#2467EC" : "transparent",
+                    activeButton === "Reviews" ? "#009990" : "transparent",
                   borderRadius: activeButton === "Reviews" ? 50 : 0,
                 }}
                 onPress={() => setActiveButton("Reviews")}
@@ -306,7 +306,7 @@ export default function CourseDetailScreen() {
                   >
                     <Text
                       style={{
-                        color: "#2467EC",
+                        color: "#009990",
                         fontSize: 14,
                       }}
                     >
@@ -345,7 +345,7 @@ export default function CourseDetailScreen() {
             {checkPurchased === true ? (
               <TouchableOpacity
                 style={{
-                  backgroundColor: "#2467EC",
+                  backgroundColor: "#009990",
                   paddingVertical: 16,
                   borderRadius: 4,
                 }}
@@ -370,7 +370,7 @@ export default function CourseDetailScreen() {
             ) : (
               <TouchableOpacity
                 style={{
-                  backgroundColor: "#2467EC",
+                  backgroundColor: "#009990",
                   paddingVertical: 16,
                   borderRadius: 4,
                 }}

@@ -75,7 +75,7 @@ export default function CourseCard({ item }: { item: CoursesType }) {
         >
           <View style={{ flexDirection: "row" }}>
             <Text style={{ paddingTop: 10, fontSize: 18, fontWeight: "600" }}>
-              ${item?.price}
+              Rs.{item?.price}.00
             </Text>
             <Text
               style={{
@@ -85,7 +85,7 @@ export default function CourseCard({ item }: { item: CoursesType }) {
                 fontWeight: "400",
               }}
             >
-              ${item?.estimatedPrice}
+              Rs.{item?.estimatedPrice}.00
             </Text>
           </View>
           <View

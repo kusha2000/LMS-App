@@ -49,7 +49,7 @@ export default function Header() {
       </View>
       <TouchableOpacity
         style={styles.bellButton}
-        // onPress={() => router.push("/(routes)/cart")}
+        onPress={() => router.push("/(routes)/cart")}
       >
         <View>
           <Feather name="shopping-bag" size={26} color={"black"} />

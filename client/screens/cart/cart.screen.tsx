@@ -240,11 +240,7 @@ export default function CartScreen() {
                           marginRight: 16,
                         }}
                       >
-                        <FontAwesome
-                          name="dollar"
-                          size={14}
-                          color={"#808080"}
-                        />
+                        
                         <Text
                           style={{
                             marginLeft: 3,
@@ -252,7 +248,7 @@ export default function CartScreen() {
                             color: "#808080",
                           }}
                         >
-                          {item.price}
+                          Rs.{item.price}.00
                         </Text>
                       </View>
                     </View>
@@ -322,14 +318,14 @@ export default function CartScreen() {
                     fontFamily: "Nunito_700Bold",
                   }}
                 >
-                  Total Price: ${calculateTotalPrice()}
+                  Total Price: Rs.{calculateTotalPrice()}
                 </Text>
               ))}
             {cartItems?.length === 0 ||
               (cartItems?.length > 0 && (
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#007BFF",
+                    backgroundColor: "#009990",
                     borderRadius: 5,
                     padding: 10,
                     marginTop: 20,

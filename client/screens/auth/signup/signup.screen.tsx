@@ -149,7 +149,7 @@ import { Toast } from "react-native-toast-notifications";
                 style={[styles.input, { paddingLeft: 40, marginBottom: -12 }]}
                 keyboardType="default"
                 value={userInfo.name}
-                placeholder="shahriar sajeeb"
+                placeholder="User Name"
                 onChangeText={(value) =>
                   setUserInfo({ ...userInfo, name: value })
                 }
