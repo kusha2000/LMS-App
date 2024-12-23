@@ -15,6 +15,7 @@ import {
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import CourseLesson from "@/components/courses/course.lesson";
+import ReviewCard from "@/components/cards/review.card";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import useUser from "@/hooks/auth/useUser";
 import Loader from "@/components/loader/loader";
@@ -43,6 +44,7 @@ export default function CourseDetailScreen() {
       cartData.push(courseData);
       await AsyncStorage.setItem("cart", JSON.stringify(cartData));
     }
+    router.push("/(routes)/cart");
   };
 
   let [fontsLoaded, fontError] = useFonts({
@@ -329,7 +331,7 @@ export default function CourseDetailScreen() {
                 <View style={{ rowGap: 25 }}>
                   {courseData?.reviews?.map(
                     (item: ReviewType, index: number) => (
-                      <View></View>
+                      <ReviewCard item={item} key={index} />
                     )
                   )}
                 </View>
@@ -351,7 +353,12 @@ export default function CourseDetailScreen() {
                   paddingVertical: 16,
                   borderRadius: 4,
                 }}
-                
+                onPress={() =>
+                  router.push({
+                    pathname: "/(routes)/course-access",
+                    params: { courseData: JSON.stringify(courseData) },
+                  })
+                }
               >
                 <Text
                   style={{
