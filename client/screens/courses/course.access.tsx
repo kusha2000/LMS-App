@@ -7,7 +7,6 @@ import {
   TextInput,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import Loader from "@/components/loader/loader";
 import { router, useLocalSearchParams } from "expo-router";
 import axios from "axios";
 import { SERVER_URI } from "@/utils/uri";
@@ -151,9 +150,7 @@ export default function CourseAccessScreen() {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
+
         <ScrollView stickyHeaderIndices={[0]} style={{ flex: 1, padding: 10 }}>
           <View
             style={{ width: "100%", aspectRatio: 16 / 9, borderRadius: 10 }}
@@ -417,7 +414,7 @@ export default function CourseAccessScreen() {
             </View>
           )}
         </ScrollView>
-      )}
+
     </>
   );
 }

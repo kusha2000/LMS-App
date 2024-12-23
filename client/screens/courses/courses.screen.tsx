@@ -13,7 +13,6 @@ import {
   Nunito_500Medium,
   Nunito_600SemiBold,
 } from "@expo-google-fonts/nunito";
-import Loader from "@/components/loader/loader";
 import { LinearGradient } from "expo-linear-gradient";
 import CourseCard from "@/components/cards/course.card";
 
@@ -77,11 +76,8 @@ export default function CoursesScreen() {
 
   return (
     <>
-      {!loading ? (
-        <Loader />
-      ) : (
         <LinearGradient
-          colors={["#E5ECF9", "#F6F7F9"]}
+          colors={["#009990","#F6F7F9"]}
           style={{ flex: 1, paddingTop: 65 }}
         >
           <View style={{ padding: 10 }}>
@@ -139,7 +135,6 @@ export default function CoursesScreen() {
             )}
           </View>
         </LinearGradient>
-      )}
     </>
   );
 }

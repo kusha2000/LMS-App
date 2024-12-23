@@ -1,5 +1,4 @@
 import CourseCard from "@/components/cards/course.card";
-import Loader from "@/components/loader/loader";
 import useUser from "@/hooks/auth/useUser";
 import { SERVER_URI } from "@/utils/uri";
 import axios from "axios";
@@ -24,10 +23,7 @@ export default function index() {
 
   return (
     <>
-      {loader || loading ? (
-        <Loader />
-      ) : (
-        <LinearGradient colors={["#E5ECF9", "#F6F7F9"]} style={{ flex: 1 }}>
+        <LinearGradient colors={["#009990","#F6F7F9"]} style={{ flex: 1 }}>
           <FlatList
             data={courses}
             showsHorizontalScrollIndicator={false}
@@ -35,7 +31,7 @@ export default function index() {
             renderItem={({ item }) => <CourseCard item={item} />}
           />
         </LinearGradient>
-      )}
+
     </>
   );
 }

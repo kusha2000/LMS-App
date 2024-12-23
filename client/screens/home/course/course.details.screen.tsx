@@ -18,7 +18,6 @@ import CourseLesson from "@/components/courses/course.lesson";
 import ReviewCard from "@/components/cards/review.card";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import useUser from "@/hooks/auth/useUser";
-import Loader from "@/components/loader/loader";
 
 export default function CourseDetailScreen() {
   const [activeButton, setActiveButton] = useState("About");
@@ -62,11 +61,8 @@ export default function CourseDetailScreen() {
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
         <LinearGradient
-          colors={["#E5ECF9", "#F6F7F9"]}
+          colors={["#009990","#F6F7F9"]}
           style={{ flex: 1, paddingTop: 15 }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -394,7 +390,6 @@ export default function CourseDetailScreen() {
             )}
           </View>
         </LinearGradient>
-      )}
     </>
   );
 }

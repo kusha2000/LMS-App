@@ -128,7 +128,7 @@ export default function CartScreen() {
 
   return (
     <LinearGradient
-      colors={["#E5ECF9", "#F6F7F9"]}
+      colors={["#009990","#F6F7F9"]}
       style={{ flex: 1, backgroundColor: "white" }}
     >
       {orderSuccess ? (
