@@ -4,38 +4,41 @@ A Learning Management System (LMS) application that provides a seamless experien
 
 <h3><u>Technologies Used</u></h3>
 <ul>
-<li>React Native</li>
-<li>Node.js</li>
-<li>Express</li>
-<li>MongoDB</li>
+🔹 React Native<br>
+🔹 Node.js<br>
+🔹 Express<br>
+🔹 MongoDB<br>
 </ul>
 <h3><u>Features</u></h3>
 
 Account Management:<ul>
-<li>Register: Users can create accounts with email verification via OTP.</li>
-<li>Login: Users can securely access their accounts.</li>
-<li>Forgot Password: Users can reset their password if needed.</li>
+✅ Register: Users can create accounts with email verification via OTP.<br>
+✅ Login: Users can securely access their accounts.<br>
+✅ Forgot Password: Users can reset their password if needed.<br>
 </ul>
 Course Features:
 <ul>
-<li>Search Courses: Users can search for courses using keywords.</li>
-<li>Course Details: View a detailed description of each course.</li>
-<li>Category Browsing: Browse courses categorized for better navigation.</li>
+✅ Search Courses: Users can search for courses using keywords.<br>
+✅ Course Details: View a detailed description of each course.<br>
+✅ Category Browsing: Browse courses categorized for better navigation.<br>
 </ul>
 Shopping Cart:
 <ul>
-<li>Users can add courses to the cart and proceed to checkout.</li>
+✅ Users can add courses to the cart and proceed to checkout.<br>
 </ul>
 Responsive Design:
 <ul>
-<li>Built with React Native to ensure compatibility across multiple devices.</li>
+✅ Built with React Native to ensure compatibility across multiple devices.<br>
 </ul>
 Security:
 <ul>
-<li>Email verification through OTP ensures secure account creation.</li>
+✅ Email verification through OTP ensures secure account creation.<br>
 </ul>
 
 <h2>This is the Full Demo of the project</h2><br><br>
+
+https://github.com/user-attachments/assets/809ef3d0-66ef-4dd2-a8d6-46d12af09397
+
 <h2>This is the screenshots of the system</h2><br><br>
 
 <img src="https://github.com/user-attachments/assets/a2c1fc00-0941-4c19-9522-a071a4eb4339" width="300" height="400">
